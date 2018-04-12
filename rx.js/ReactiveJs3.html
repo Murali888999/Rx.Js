@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Rxjs</title>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>
+        var input = Rx.Observable.fromEvent(document.querySelector('input'), 'input');
+
+        input.map(event => event.target.value)
+        .subscribe(value => document.getElementById("pa1").innerHTML = (value));
+
+        input.delay(2000)
+        .map(event => event.target.value)
+            .subscribe(value =>document.getElementById("pa2").innerHTML=(value));
+    </script>
+</head>
+<body>
+    Enter Text: <input type="text" />
+    <p id="pa1">paragraph</p>
+    <p id="pa2">paragraph</p>
+</body>
+</html>

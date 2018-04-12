@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Observer</title>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>
+        var obj = Rx.Observable.create(function (y) {
+            y.next(90);
+            y.next(88);
+            y.next(76);
+        });
+        var observer = {
+            next: x => document.writeln("observer got next value:" +x),
+            Error: e => document.writeln("observer got an error :" +e)
+        };
+            observable.subscribe(
+            x => document.writeln('Observer got a next value: ' + x),
+            err => document.writeln('Observer got an error: ' + err),
+            () => document.writeln('Observer got a complete notification')
+        );
+    </script>
+</head>
+<body>
+</body>
+</html>

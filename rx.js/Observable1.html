@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>observable Next,complete and error methods</title>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>    
+        var obj = Rx.Observable.create(function (y) {
+            try {
+                document.writeln("Hiiiiiiiiii");
+                y.next(34);
+                y.next(24);
+                y.next(45);
+                y.complete();
+                y.next(55);
+            }catch(e)
+               {
+                 y.Error(e);
+               }
+        });
+            obj.subscribe(function (x) {
+                document.writeln("----------");
+                document.writeln(x);
+            });
+            document.writeln("after");
+  
+    </script>
+</head>
+<body>    
+</body>
+</html>
